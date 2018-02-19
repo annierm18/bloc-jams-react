@@ -5,13 +5,13 @@ class PlayerBar extends Component {
     return (
       <section className="player-bar">
         <section id="buttons">
-          <button id="previous" onClick={this.props.handlePrevClick}>
+          <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="previous" onClick={this.props.handlePrevClick}>
             <span className="ion-skip-backward"></span>
           </button>
-          <button id="play-pause" onClick={this.props.handleSongClick} >
+          <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="play-pause" onClick={this.props.handleSongClick} >
             <span className={this.props.isPlaying ? 'ion-pause' : 'ion-play'}></span>
           </button>
-          <button id="next" onClick={this.props.handleNextClick} >
+          <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="next" onClick={this.props.handleNextClick} >
             <span className="ion-skip-forward"></span>
           </button>
         </section>
