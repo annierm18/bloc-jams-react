@@ -20,3 +20,20 @@ p {
 .song-actions {
   color: #F48FB1;
 }
+
+tr .ion-play,
+tr .ion-pause {
+  display: none;
+}
+
+tr:hover .song-number {
+  display: none;
+}
+
+tr:hover .ion-play {
+  display: block;
+}
+
+tr:hover .song-playing .ion-pause {
+  display: block;
+}

@@ -21,8 +21,6 @@ class Album extends Component {
 
     this.audioElement = document.createElement('audio');
     this.audioElement.src = album.songs[0].audioSrc;
-    this.handleHoverOn = this.handleHoverOn.bind(this);
-    this.handleHoverOff = this.handleHoverOff.bind(this);
   }
 
   componentDidMount() {
@@ -101,44 +99,17 @@ class Album extends Component {
     return time ? `${Math.floor(time/60)}:${Number(time % 60 / 100).toFixed(2).substr(2,3)}`: '-:--';
   }
 
-  handleSongClass(song, index) {
+  songClass(song) {
     if( song === this.state.currentSong) {
       if (this.state.isPlaying) {
-        return 'ion-pause'
+        return 'playing'
       } else if (!this.state.isPlaying) {
-        return 'ion-play'
+        return 'pause'
       }
-    } else if (this.state.songs[index].hover) {
-      return 'ion-play'
+    } else if (song !== this.state.currentSong) {
+      return 'play'
     }
   }
-
-  songNumber(song, index) {
-    const number = index + 1;
-    if (song === this.state.currentSong || this.state.songs[index].hover) {
-      return
-    } else {
-      return number
-    }
-  }
-
-handleHoverOn(index) {
-  const tempIcon = this.state.songs;
-  tempIcon[index].hover = true;
-  this.setState(tempIcon);
-}
-
-handleHoverOff(index) {
-  const tempIcon = this.state.songs;
-  tempIcon[index.hover] = false;
-  this.setState(tempIcon);
-}
-
-hoverEffect(index) {
-  if (this.state.songs[index].hover) {
-    return 'ion-play'
-  }
-}
 
 
   render() {
@@ -160,10 +131,12 @@ hoverEffect(index) {
           </colgroup>
           <tbody>
             {this.state.album.songs.map( (song, index) =>
-                <tr className="song" onMouseEnter={() => this.handleMouseOn()} onMouseLease={() => this.handleMouseOff()} key={index} onClick={() => this.handleSongClick(song)} >
+                <tr className="this.songClass(song)" key={index} onClick={() => this.handleSongClick(song)} >
                   <td className="song-actions">
                     <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" >
-                      <span className={this.handleSongClass(song, index)}>{this.songNumber(song, index)}</span>
+                      <span className="song-number">{index + 1}</span>
+                      <span className="ion-play"></span>
+                      <span className="ion-pause"></span>
                     </button>
                   </td>
                   <td className="song-title">{song.title}</td>
