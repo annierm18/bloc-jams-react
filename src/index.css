@@ -26,6 +26,10 @@ tr .ion-pause {
   display: none;
 }
 
+tr.song-playing .song-number {
+  display: none;
+}
+
 tr:hover .song-number {
   display: none;
 }
@@ -34,6 +38,6 @@ tr:hover .ion-play {
   display: block;
 }
 
-tr:hover .song-playing .ion-pause {
+tr.song-playing .ion-pause {
   display: block;
 }
