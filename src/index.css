@@ -41,3 +41,15 @@ tr:hover .ion-play {
 tr.song-playing .ion-pause {
   display: block;
 }
+
+tr.song-playing .ion-play {
+  display: none;
+}
+
+tr.song-pause .song-number{
+  display: none;
+}
+
+tr.song-pause .ion-play{
+  display: block;
+}
